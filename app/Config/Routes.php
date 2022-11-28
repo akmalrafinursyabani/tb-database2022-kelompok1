@@ -36,11 +36,19 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/transaction', 'TransactionController::index');
+$routes->get('transaction', 'TransactionController::index');
 
 // Items
-$routes->get('/items', 'ItemController::index');
+$routes->get('items', 'ItemController::index');
 $routes->match(['get', 'post'], '/items/create', 'ItemController::create');
+$routes->match(['get', 'post'], '/items/(:segment)/update', 'ItemController::update/$1');
+$routes->get('items/(:segment)/delete', 'ItemController::delete/$1');
+
+// Cashier
+$routes->get('cashier', 'CashierController::index');
+$routes->match(['get', 'post'], '/cashier/create', 'CashierController::create');
+$routes->match(['get', 'post'], '/cashier/(:segment)/update', 'CashierController::update/$1');
+$routes->get('cashier/(:segment)/delete', 'CashierController::delete/$1');
 
 service('auth')->routes($routes);
 

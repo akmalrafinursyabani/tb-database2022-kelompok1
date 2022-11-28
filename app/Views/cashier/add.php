@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm">
-                    <h1 class="m-0">Update Barang</h1>
+                    <h1 class="m-0">Tambah Data Kasir</h1>
                 </div>
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -22,7 +22,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Update detail dari nama barang</h3>
+                            <h3 class="card-title">Daftar Data Kasir</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -39,33 +39,18 @@
                         <!-- /.card-header -->
                         <div class="card-body">
 
-                            <form action="<?php echo base_url('/items/' . esc($item['id']) . '/update') ?>" method="POST">
+                            <form action="<?php echo base_url('/cashier/create') ?>" method="POST">
                                 <?= csrf_field() ?>
-
-                                <input type="hidden" name="id" value="<?= esc($item['id']) ?>" required class="form-control">
-
                                 <div class="card-body table-responsive p-0">
                                     <div class="form-group mb-2">
-                                        <label for="exampleInputEmail1">Kode Barang</label>
-                                        <input type="text" name="code" value="<?= esc($item['code']) ?>" required class="form-control" id="exampleInputEmail1" placeholder="Contoh: EXC0391230">
+                                        <label for="exampleInputEmail1">Nama Kasir</label>
+                                        <input type="text" name="name" required class="form-control" id="exampleInputEmail1" placeholder="Hendrianti">
                                     </div>
                                     <div class="form-group mb-2">
-                                        <label for="exampleInputEmail1">Nama Barang</label>
-                                        <input type="text" name="name" value="<?= esc($item['name']) ?>" required class="form-control" id="exampleInputEmail1" placeholder="Coklat Kacang Medusa">
+                                        <label for="exampleInputEmail1">No. Handphone</label>
+                                        <input type="number" name="phone_number" required class="form-control" id="exampleInputEmail1" placeholder="08xxxxxxx">
                                     </div>
-                                    <div class="form-group mb-2">
-                                        <label for="exampleInputEmail1">Stok</label>
-                                        <input type="number" name="stock" value="<?= esc($item['stock']) ?>" required class="form-control" id="exampleInputEmail1" placeholder="Jumlah stok barang">
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="exampleInputEmail1">Harga</label>
-                                        <input type="number" name="price" value="<?= esc($item['price']) ?>" required class="form-control" id="exampleInputEmail1" placeholder="25000">
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="exampleInputEmail1">Kategory</label>
-                                        <input type="text" name="category" value="<?= esc($item['category']) ?>" required class="form-control" id="exampleInputEmail1" placeholder="Contoh: EXC0391230">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary mt-3">Update barang</a>
+                                    <button type="submit" class="btn btn-primary mt-3">Tambah Data Kasir</a>
                                 </div>
                             </form>
                         </div>

@@ -90,9 +90,6 @@
           </ul>
         </li>
 
-
-
-
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon far fa-image"></i>
@@ -103,15 +100,39 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="pages/charts/flot.html" class="nav-link">
+              <a href="<?php echo base_url('/items') ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>List Produk</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/charts/chartjs.html" class="nav-link">
+              <a href="<?php echo base_url('/items/create') ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Tambah Produk</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="fas fa-users mr-2"></i>
+            <p>
+              Kasir
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?php echo base_url('/cashier') ?>" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>List Kasir</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url('/cashier/create') ?>" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Tambah Kasir</p>
               </a>
             </li>
           </ul>
