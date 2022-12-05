@@ -44,11 +44,21 @@ $routes->match(['get', 'post'], '/items/create', 'ItemController::create');
 $routes->match(['get', 'post'], '/items/(:segment)/update', 'ItemController::update/$1');
 $routes->get('items/(:segment)/delete', 'ItemController::delete/$1');
 
+// Transactions
+$routes->get('transaction', 'TransactionController::index');
+$routes->match(['get', 'post'], '/transaction/create', 'TransactionController::create');
+
 // Cashier
 $routes->get('cashier', 'CashierController::index');
 $routes->match(['get', 'post'], '/cashier/create', 'CashierController::create');
 $routes->match(['get', 'post'], '/cashier/(:segment)/update', 'CashierController::update/$1');
 $routes->get('cashier/(:segment)/delete', 'CashierController::delete/$1');
+
+// Customer
+$routes->get('customer', 'CustomerController::index');
+$routes->match(['get', 'post'], '/customer/create', 'CustomerController::create');
+$routes->match(['get', 'post'], '/customer/(:segment)/update', 'CustomerController::update/$1');
+$routes->get('customer/(:segment)/delete', 'CustomerController::delete/$1');
 
 service('auth')->routes($routes);
 

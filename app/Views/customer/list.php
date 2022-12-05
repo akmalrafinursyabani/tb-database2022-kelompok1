@@ -5,10 +5,10 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-2">
-                    <h1 class="m-0">Riwayat Transaksi</h1>
+                    <h1 class="m-0">Daftar Pelanggan</h1>
                 </div>
                 <div class="col-sm-2">
-                    <a href="" class="btn btn-primary">+ Transaksi Baru</a>
+                    <a href="<?php echo base_url('customer/create') ?>" class="btn btn-primary">+ Pelanggan Baru</a>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -25,7 +25,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Riwayat Transaksi</h3>
+                            <h3 class="card-title">Daftar pelanggan</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -40,35 +40,31 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
-                        <?php if (!empty($items) && is_array($items)) : ?>
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nomor Faktur</th>
-                                        <th>Total Pemasukan</th>
-                                        <th>Tanggal Transaksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                <?php
+                        <div class="card-body table-responsive p-0"><?php if (!empty($items) && is_array($items)) : ?>
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Pelanggan</th>
+                                            <th>No. HP</th>
+                                            <th>Alamat</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
                                                                         $no = 1;
                                                                         foreach ($items as $item) : ?>
-                                 <tr>
+                                            <tr>
                                                 <td><?= $no++ ?></td>
-                                                <td><?= esc($item['invoice']) ?></td>
-                                                <td>Rp<?= esc($item['price']) ?></td>
-                                                <td><?= esc($item['created_at']) ?></td>
-                                                <td> 
-                                                    <a href="<?php echo base_url('/' . esc($item['id']) . '/delete') ?>" class="btn btn-primary">
-                                                        Detail Transaksi
-                                                    </a> |
-                                                    <a href="<?php echo base_url('/' . esc($item['id']) . '/update') ?>" class="btn btn-warning">
+                                                <td><?= esc($item['name']) ?></td>
+                                                <td><?= esc($item['phone_number']) ?></td>
+                                                <td><?= esc($item['address']) ?></td>
+                                                <td>
+                                                    <a href="<?php echo base_url('/customer/' . esc($item['id']) . '/update') ?>" class="btn btn-warning">
                                                         Edit
                                                     </a> |
-                                                    <a href="<?php echo base_url('/' . esc($item['id']) . '/delete') ?>" class="btn btn-danger">
+                                                    <a href="<?php echo base_url('/customer/' . esc($item['id']) . '/delete') ?>" class="btn btn-danger">
                                                         Hapus
                                                     </a>
                                                 </td>
@@ -77,7 +73,7 @@
                                     </tbody>
                                 </table>
                             <?php else : ?>
-                                <p class="ml-3">Belum ada kasir yang tersedia.</p>
+                                <p class="ml-3">Belum ada pelanggan yang tersedia.</p>
                             <?php endif ?>
                         </div>
                         <!-- /.card-body -->

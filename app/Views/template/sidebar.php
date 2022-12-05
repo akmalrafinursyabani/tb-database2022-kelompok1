@@ -76,13 +76,13 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="pages/charts/chartjs.html" class="nav-link">
+              <a href="<?php echo base_url('/transaction/create') ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Tambah Transaksi</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/charts/flot.html" class="nav-link">
+              <a href="<?php echo base_url('/transaction') ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Riwayat Transaksi</p>
               </a>
@@ -133,6 +133,30 @@
               <a href="<?php echo base_url('/cashier/create') ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Tambah Kasir</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="fas fa-users mr-2"></i>
+            <p>
+              Pelanggan
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?php echo base_url('/customer') ?>" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>List Pelanggan</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url('/customer/create') ?>" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Tambah Pelanggan</p>
               </a>
             </li>
           </ul>
