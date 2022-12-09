@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm">
-                    <h1 class="m-0">Tambah Data transaksi</h1>
+                    <h1 class="m-0">Transaksi untuk:</h1>
                 </div>
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -47,7 +47,7 @@
                                 <div class="card-body table-responsive p-0">
                                     <div class="form-group mb-2">
                                         <label for="exampleSelectBorder">Pilih pengguna</label>
-                                        <select required class="custom-select form-control-border" name="customer" id="exampleSelectBorder">
+                                        <select class="custom-select form-control-border" name="customer" id="exampleSelectBorder">
                                             <option selected disabled>Pilih pelanggan</option>
                                             <?php if (!empty($customers) && is_array($customers)) : ?>
                                                 <?php
@@ -66,7 +66,7 @@
 
                                     <div class="form-group mb-2">
                                         <label for="exampleSelectBorder">Pilih kasir</label>
-                                        <select required class="custom-select form-control-border" name="cashier" id="exampleSelectBorder">
+                                        <select class="custom-select form-control-border" name="cashier" id="exampleSelectBorder">
                                             <option selected disabled>Pilih kasir</option>
                                             <?php if (!empty($cashiers) && is_array($cashiers)) : ?>
                                                 <?php

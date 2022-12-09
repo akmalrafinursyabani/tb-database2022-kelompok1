@@ -47,6 +47,7 @@ $routes->get('items/(:segment)/delete', 'ItemController::delete/$1');
 // Transactions
 $routes->get('transaction', 'TransactionController::index');
 $routes->match(['get', 'post'], '/transaction/create', 'TransactionController::create');
+$routes->get('transaction/(:segment)/delete', 'TransactionController::delete/$1');
 
 // Cashier
 $routes->get('cashier', 'CashierController::index');

@@ -8,7 +8,7 @@
                     <h1 class="m-0">Riwayat Transaksi</h1>
                 </div>
                 <div class="col-sm-2">
-                    <a href="" class="btn btn-primary">+ Transaksi Baru</a>
+                    <a href="<?php echo base_url('/transaction/create') ?>" class="btn btn-primary">+ Transaksi Baru</a>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -41,34 +41,39 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                        <?php if (!empty($items) && is_array($items)) : ?>
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nomor Faktur</th>
-                                        <th>Total Pemasukan</th>
-                                        <th>Tanggal Transaksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                <?php
-                                                                        $no = 1;
-                                                                        foreach ($items as $item) : ?>
-                                 <tr>
+                            <?php if (!empty($items) && is_array($items)) : ?>
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nomor Faktur</th>
+                                            <th>Total Pemasukan</th>
+                                            <th>Tanggal Transaksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($items as $item) : ?>
+                                            <tr>
                                                 <td><?= $no++ ?></td>
                                                 <td><?= esc($item['invoice']) ?></td>
-                                                <td>Rp<?= esc($item['price']) ?></td>
+                                                <td><?php
+                                                        if ($item['price'] == null) {
+                                                            echo "Belum ada jumlah.";
+                                                        } else {
+                                                            echo "Rp" . $item['price'];
+                                                        }
+                                                        ?></td>
                                                 <td><?= esc($item['created_at']) ?></td>
-                                                <td> 
-                                                    <a href="<?php echo base_url('/' . esc($item['id']) . '/delete') ?>" class="btn btn-primary">
+                                                <td>
+                                                    <a href="#" class="btn btn-primary">
                                                         Detail Transaksi
                                                     </a> |
-                                                    <a href="<?php echo base_url('/' . esc($item['id']) . '/update') ?>" class="btn btn-warning">
+                                                    <a href="<?php echo base_url('transaction/' . esc($item['id']) . '/update') ?>" class="btn btn-warning">
                                                         Edit
                                                     </a> |
-                                                    <a href="<?php echo base_url('/' . esc($item['id']) . '/delete') ?>" class="btn btn-danger">
+                                                    <a href="<?php echo base_url('transaction/' . esc($item['id']) . '/delete') ?>" class="btn btn-danger">
                                                         Hapus
                                                     </a>
                                                 </td>
@@ -77,7 +82,7 @@
                                     </tbody>
                                 </table>
                             <?php else : ?>
-                                <p class="ml-3">Belum ada kasir yang tersedia.</p>
+                                <p class="ml-3 mt-2">Belum ada data transaksi yang tersedia.</p>
                             <?php endif ?>
                         </div>
                         <!-- /.card-body -->
